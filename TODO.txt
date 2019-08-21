@@ -1,0 +1,12 @@
+FRONTEND:
+  stats visualizations
+  input fields for # of rarity tiers
+  input fields for rarity percentages
+  BONUS:
+    specific character - specify input for character pool size
+    presets for gbf, pad, etc.
+
+BACKEND
+  generalized form of binomial probability
+  support for tail probabilities
+  
