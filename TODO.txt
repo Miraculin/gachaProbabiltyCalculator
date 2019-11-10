@@ -1,6 +1,9 @@
 FRONTEND:
   stats visualizations
   input fields for # of rarity tiers
+   need to add change handlers to
+    1. dynamically add and drop rows for percentage input
+    2. change error state
   input fields for rarity percentages
   BONUS:
     specific character - specify input for character pool size
@@ -9,4 +12,3 @@ FRONTEND:
 BACKEND
   generalized form of binomial probability
   support for tail probabilities
-  

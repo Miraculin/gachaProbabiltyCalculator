@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Bulma!</title>
-    <link rel="stylesheet" type="text/css" href="css/bulma.css">
+    <link rel="stylesheet" type="text/css" href="css/bulma.min.css">
+    <script defer src="scripts/index.js"></script>
     <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
   </head>
   <body>
@@ -15,6 +16,12 @@
       </h1>
       <p class="subtitle">
         My first website with <strong>Bulma</strong>!
+      </p>
+      <div class="columns">
+        <label class="column is-one-fifth">Number of rarity tiers: </label>
+        <input class="input column" id="rarity-tier" type="number" min=1 max=10 placeholder="Rartiy Tiers">
+      </div>
+      <p id="javascript-test">
       </p>
     </div>
   </section>
