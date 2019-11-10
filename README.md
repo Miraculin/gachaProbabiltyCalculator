@@ -2,7 +2,7 @@
 
 ## Installation
 
-Install Clojure
+Install Clojure  
 Install Lein
 
 ## Usage
