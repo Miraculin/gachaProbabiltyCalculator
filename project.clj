@@ -8,7 +8,6 @@
                  [ring/ring-core "1.7.1"]
                  [org.clojure/math.numeric-tower "0.0.4"]
                  [bk/ring-gzip "0.3.0"]]
-                 ; [amalloy/ring-gzip-middleware "0.1.4"]]
   :main ^:skip-aot genericgacha.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}}
