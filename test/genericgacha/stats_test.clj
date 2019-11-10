@@ -3,6 +3,11 @@
             [genericgacha.stats :refer :all]
             [clojure.math.numeric-tower :as nt]))
 
+(deftest binomial-coefficient-benchmark
+  (testing "Is pascal's rule faster than factorial"
+    (is (> (time (stable-binom-coefficient 20 10)) 0))))
+
+
 (deftest binomial-probability-test
   (testing "is binomial point probability calculated properly"
     (is (= (binomial-probability 1 1 1) 1))

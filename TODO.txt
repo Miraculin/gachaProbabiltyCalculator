@@ -12,3 +12,8 @@ FRONTEND:
 BACKEND
   generalized form of binomial probability
   support for tail probabilities
+  Support for user entering their draw rates and calulating how unlucky they are
+    - Probability that they rolled x characters in n draws
+  Support for showing after n draws, probability they'll get 1
+  Showing expected value after n draws.
+  

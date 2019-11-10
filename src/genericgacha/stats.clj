@@ -2,16 +2,17 @@
   (:gen-class)
   (:require [clojure.math.numeric-tower :as nt]))
 
-(defn binomial-coefficient [n k]
-  "Calulates the binomial coefficient given n trials and k successes"
-  (let [rprod (fn [a b] (reduce * (range a (inc b))))]
-    (/ (rprod (- n k -1) n) (rprod 1 k))))
+(defn stable-binom-coefficient [n k]
+  "More numerically stable method, using recursive relations n Choose k = n/k*n-1 choose k-1"
+  (if (< k (- n k))
+      (reduce *  (map #(/ (- n %1 -1) %1) (range 1 (inc k))))
+      (reduce *  (map #(/ (- n %1 -1) %1) (range 1 (inc (- n k)))))))
 
 (defn binomial-probability [n k p]
   "Calculates the binomial probability given n trials, k successes
   and p probability of success in a single trial"
   (if (and (<= p 1) (>= p 0))
-    (* (binomial-coefficient n k)
+    (* (stable-binom-coefficient n k)
        (nt/expt p k)
        (nt/expt (- 1 p) (- n k)))
     0))
