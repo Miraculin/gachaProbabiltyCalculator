@@ -24,6 +24,7 @@
     (is (= (+ (binomial-probability 5 4 0.6)
               (binomial-probability 5 5 0.6))
           0.33696))))
+
 (deftest tail-probability-test
   (testing "is tail probability calculated properly"
     (is (= (upper-tail-probability 5 0.6 4) 0.33696))

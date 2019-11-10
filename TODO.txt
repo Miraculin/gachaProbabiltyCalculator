@@ -8,6 +8,7 @@ FRONTEND:
   BONUS:
     specific character - specify input for character pool size
     presets for gbf, pad, etc.
+  Find out what forms are as input fields are not well defined without forms
 
 BACKEND
   generalized form of binomial probability
@@ -16,4 +17,3 @@ BACKEND
     - Probability that they rolled x characters in n draws
   Support for showing after n draws, probability they'll get 1
   Showing expected value after n draws.
-  
