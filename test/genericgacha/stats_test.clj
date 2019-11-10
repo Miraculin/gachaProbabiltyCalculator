@@ -4,9 +4,14 @@
             [clojure.math.numeric-tower :as nt]))
 
 (deftest binomial-coefficient-benchmark
-  (testing "Is pascal's rule faster than factorial"
-    (is (> (time (stable-binom-coefficient 20 10)) 0))))
-
+  (testing "How fast is Pascal's Rule"
+    (time (stable-binom-coefficient 20 10)) 0
+    (time (stable-binom-coefficient 200 100)) 0
+    (time (stable-binom-coefficient 2000 1000)) 0
+    (time (stable-binom-coefficient 20000 10000)) 0))
+    ; (time (stable-binom-coefficient 200000 100000)) 0)) takes ~10000 ms
+    ; (time (stable-binom-coefficient 2000000 100000)) 0)) takes ~22000 ms
+    ;
 
 (deftest binomial-probability-test
   (testing "is binomial point probability calculated properly"

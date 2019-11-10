@@ -25,7 +25,7 @@
 (defn lower-tail-probability [n p upper-bound]
   "Calculates the probability P(X<=Y). Y = upper-bound"
   (reduce + (map (fn [x] (binomial-probability n x p))
-                 (range 0 (inc n)))))
+                 (range 0 (inc upper-bound)))))
 
 (defn specific-within-tier-probability [tier-probability size]
   "Calculates the probability of getting a specific thing in a rarity tier"
