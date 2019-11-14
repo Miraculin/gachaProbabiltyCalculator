@@ -7,7 +7,9 @@
   (:use ring.middleware.gzip)
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
-            [genericgacha.stats :as stats]))
+            [genericgacha.stats :as stats]
+            [oz.core :as oz]))
+
 
 
 
@@ -16,31 +18,27 @@
         (-> (resource-response "public/index.html")
             (content-type "text/html")))
       (wrap-resource "public")
-      (wrap-content-type)
-      (wrap-not-modified)
-      (wrap-gzip)))
+      (wrap-content-type)))
 
 (def not-found-handler
   (-> (fn [request]
         (-> (resource-response "public/not-found.html")
             (content-type "text/html")))
       (wrap-resource "public")
-      (wrap-content-type)
-      (wrap-not-modified)
-      (wrap-gzip)))
+      (wrap-content-type)))
+
+(defn start-oz-server [request]
+  (oz/start-server!)
+  (redirect "/"))
 
 
-(def css-handler
-  (-> (fn [request]
-        (-> (resource-response "public/css/bulma.min.css")
-            (content-type "text/css")))
-      (wrap-resource "public")
-      (wrap-content-type)
-      (wrap-not-modified)
-      (wrap-gzip)))
-
-(defroutes index-handler
+(defroutes index-routes
   (GET "/" [] resourced-handler)
-  (GET "/css/bulma.min.css" [] css-handler)
+  (GET "/startoz" [] start-oz-server)
   (route/resources "/")
   (route/not-found not-found-handler))
+
+(def main-handler
+  (-> index-routes
+      (wrap-gzip)
+      (wrap-not-modified)))
